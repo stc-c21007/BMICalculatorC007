@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">BMI計算機</string>
+    <string name="t_age">年齢</string>
+    <string name="tv_age">年齢を入力</string>
+    <string name="ts_age">歳</string>
+    <string name="t_he">身長</string>
+    <string name="tv_he">身長を入力</string>
+    <string name="ts_cm">cm</string>
+    <string name="t_we">体重</string>
+    <string name="tv_we">体重を入力</string>
+    <string name="ts_kg">kg</string>
+    <string name="bt_zan">計算</string>
+    <string name="bt_clear">クリア</string>
+    <string name="t_hi">あなたの肥満度は</string>
+    <string name="t_han1_bmi">低体重(瘦せ型)</string>
+    <string name="t_han2_bmi">普通体重</string>
+    <string name="t_han3_bmi">肥満(1度)</string>
+    <string name="t_han4_bmi">肥満(2度)</string>
+    <string name="t_han5_bmi">肥満(3度)</string>
+    <string name="t_han6_bmi">肥満(4度)</string>
+    <string name="t_tek">あなたの適正体重は</string>
+    <string name="t_w_bmi">適正体重</string>
+    <string name="dialog_title">警告</string>
+    <string name="dialog_msg">適切な肥満度を求めるためには、6歳未満の場合はカウプ指数が、6歳から15歳まではローレル指数が使われます。本アプリはBMIのみに対応しています。</string>
+    <string name="dialog_btn_ok">確認</string>
+</resources>
