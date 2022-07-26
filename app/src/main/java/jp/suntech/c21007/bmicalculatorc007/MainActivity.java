@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,9 +65,23 @@ public class MainActivity extends AppCompatActivity {
                     float t = 0;
                     float hyo = 0;
 
+                    //入力値が空白の場合
+                    if(inputStr1.equals("") == true || inputStr2.equals("") == true || inputStr3.equals("") == true){
+                        Toast.makeText(MainActivity.this, "値を入力してください",Toast.LENGTH_LONG).show();
+                        break;
+                    }
+
                     float m = c_he / 100;
 
-
+                    if(i_age > 150){
+                        Toast.makeText(MainActivity.this, "この値では大きすぎます。前例がありません。150以下にしてください。",Toast.LENGTH_LONG).show();
+                    }
+                    if(c_he > 261){
+                        Toast.makeText(MainActivity.this, "この値では大きすぎます。前例がありません。261以下にしてください。",Toast.LENGTH_LONG).show();
+                    }
+                    if(c_we > 540){
+                        Toast.makeText(MainActivity.this, "この値では大きすぎます。前例がありません。540以下にしてください。",Toast.LENGTH_LONG).show();
+                    }
 
                     if(i_age < 6){
                         //6歳未満はカウプ指数
