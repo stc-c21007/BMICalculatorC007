@@ -62,10 +62,6 @@ public class MainActivity extends AppCompatActivity {
                     float c_we = Float.parseFloat(inputStr3);
                     int color;
 
-                    if(i_age < 16){
-                        new OrderConfirmDialogFragment().show(getSupportFragmentManager(), "OrderConfirmDialogFragment");
-                    }
-
                     //BMIの計算
                     float m = c_he / 100;
                     c_bmi = c_we / (m * m);
@@ -81,6 +77,59 @@ public class MainActivity extends AppCompatActivity {
                     output3.setText(R.string.t_tek);
 //                    output4.setText(R.string.t_w_bmi);
                     output5.setText(R.string.ts_kg);
+
+                    //6歳未満はカウプ指数
+                    //カウプ指数の計算
+                    float kau = c_we / (m * m);
+                    if(i_age < 1){
+                        if(kau < 14.5){
+                            output2.setText("やせすぎ");
+                        }
+                        else if(kau < 16){
+                            output2.setText("やせぎみ");
+                        }
+                        else if(kau < 18){
+                            output2.setText("普通");
+                        }
+                        else if(kau < 20){
+                            output2.setText("太りぎみ");
+                        }
+                        else{
+                            output2.setText("太りすぎ");
+                        }
+                    }
+                    if(i_age < 2){
+                        if(kau < 14.5){
+                            output2.setText("やせすぎ");
+                        }
+                        else if(kau < 15.5){
+                            output2.setText("やせすぎ");
+                        }
+                        else if(kau < 17.5){
+                            output2.setText("やせすぎ");
+                        }
+                        else if(kau < 19.5){
+                            output2.setText("やせすぎ");
+                        }
+                        else{
+                            output2.setText("やせすぎ");
+                        }
+                    }
+                    if(i_age < 3){
+                        if(kau < 13.5){
+                            output2.setText("やせすぎ");
+                        }
+                        else if(kau < 15){
+                            output2.setText("やせすぎ");
+                        }
+                        else if(kau < 17){
+                            
+                        }
+                    }
+
+                    if(i_age < 16){
+                        new OrderConfirmDialogFragment().show(getSupportFragmentManager(), "OrderConfirmDialogFragment");
+                    }
 
                     if(c_bmi < 18.5){
                         output2.setText(R.string.t_han1_bmi);
