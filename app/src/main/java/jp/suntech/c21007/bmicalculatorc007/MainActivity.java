@@ -49,38 +49,55 @@ public class MainActivity extends AppCompatActivity {
             //タップされた画面部品のidのR値を取得
             int id  = view.getId();
 
-            String inputStr1 = input1.getText().toString();
-            String inputStr2 = input2.getText().toString();
-            String inputStr3 = input3.getText().toString();
+
 
             //idのR値に応じて処理を分岐
             switch (id){
                 //計算ボタンの場合・・・
                 case R.id.btzan:
                     float c_bmi;
-                    int i_age = Integer.parseInt(inputStr1);
-                    float c_he = Float.parseFloat(inputStr2);
-                    float c_we = Float.parseFloat(inputStr3);
+                    int i_age;
+                    float c_he;
+                    float c_we;
+
+                    try {
+                        String inputStr1 = input1.getText().toString();
+                        String inputStr2 = input2.getText().toString();
+                        String inputStr3 = input3.getText().toString();
+
+                        if(inputStr1.isEmpty() || inputStr2.isEmpty() || inputStr3.isEmpty()){
+                            //入力値が空白の場合
+                            Toast.makeText(MainActivity.this, "値を入力してください",Toast.LENGTH_LONG).show();
+                            return;
+                        }
+                        i_age = Integer.parseInt(inputStr1);
+                        c_he = Float.parseFloat(inputStr2);
+                        c_we = Float.parseFloat(inputStr3);
+                    }catch (NumberFormatException exception){
+
+                        Toast.makeText(MainActivity.this, "入力した値が正しくありません。",Toast.LENGTH_LONG).show();
+                        return;
+                    }
+
+
+
                     int color = 0;
                     float t = 0;
                     float hyo = 0;
 
-                    //入力値が空白の場合
-                    if(inputStr1.equals("") == true || inputStr2.equals("") == true || inputStr3.equals("") == true){
-                        Toast.makeText(MainActivity.this, "値を入力してください",Toast.LENGTH_LONG).show();
-                        break;
-                    }
+
 
                     float m = c_he / 100;
 
+                    //検索した最高記録を最大値としている
                     if(i_age > 150){
-                        Toast.makeText(MainActivity.this, "この値では大きすぎます。前例がありません。150以下にしてください。",Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "この年齢の値では大きすぎます。前例がありません。150以下にしてください。",Toast.LENGTH_LONG).show();
                     }
                     if(c_he > 261){
-                        Toast.makeText(MainActivity.this, "この値では大きすぎます。前例がありません。261以下にしてください。",Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "この身長の値では大きすぎます。前例がありません。261以下にしてください。",Toast.LENGTH_LONG).show();
                     }
                     if(c_we > 540){
-                        Toast.makeText(MainActivity.this, "この値では大きすぎます。前例がありません。540以下にしてください。",Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "この体重の値では大きすぎます。前例がありません。540以下にしてください。",Toast.LENGTH_LONG).show();
                     }
 
                     if(i_age < 6){
@@ -212,8 +229,8 @@ public class MainActivity extends AppCompatActivity {
                         t = hyo * m * m;
                     }
                     else if(i_age < 16){ //6～15はローレル指数
-                        float ro = c_we / (m * m * m) * 10;
-                        t = (m * m * m) / 10 * 130;
+                        float ro = c_we / (m * m * m) * 10; //ローレル指数
+                        t = (m * m * m) / 10 * 130; //適正体重の計算
 
                         if(ro < 100){
                             output2.setText("やせすぎ");
@@ -272,9 +289,7 @@ public class MainActivity extends AppCompatActivity {
 
                     //表示
                     output1.setText(R.string.t_hi);
-//                    output2.setText(R.string.t_han2_bmi);
                     output3.setText(R.string.t_tek);
-//                    output4.setText(R.string.t_w_bmi);
                     output5.setText(R.string.ts_kg);
 
 
@@ -285,8 +300,6 @@ public class MainActivity extends AppCompatActivity {
 
                     output2.setTextColor(color);
 
-                    //メッセージを表示
-//                    Toast.makeText(MainActivity.this, toastText, Toast.LENGTH_LONG).show();
                     break;
 
                 //クリアボタンの場合・・・
