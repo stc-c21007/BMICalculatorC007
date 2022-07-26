@@ -198,7 +198,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     else if(i_age < 16){ //6～15はローレル指数
                         float ro = c_we / (m * m * m) * 10;
-                        t = (m * m * m) / 130 * 10;
+                        t = (m * m * m) / 10 * 130;
 
                         if(ro < 100){
                             output2.setText("やせすぎ");

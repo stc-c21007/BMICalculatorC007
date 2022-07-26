@@ -21,6 +21,6 @@
     <string name="t_tek">あなたの適正体重は</string>
     <string name="t_w_bmi">適正体重</string>
     <string name="dialog_title">警告</string>
-    <string name="dialog_msg">適切な肥満度を求めるためには、6歳未満の場合はカウプ指数が、6歳から15歳まではローレル指数が使われます。本アプリはBMIのみに対応しています。</string>
+    <string name="dialog_msg">適切な肥満度を求めるために、6歳未満の場合はカウプ指数が、6歳から15歳まではローレル指数が使われています。本アプリはBMIにも対応しています。</string>
     <string name="dialog_btn_ok">確認</string>
 </resources>
